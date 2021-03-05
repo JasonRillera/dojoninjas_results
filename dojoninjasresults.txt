@@ -1,0 +1,43 @@
+>>> from dojo_ninjas_app.models import *
+
+Create 3 new dojos
+>>> dojo1 = Dojo.objects.create(name = "Dojo 1", city = "San Francisco", state = "CA")
+>>> dojo2 = Dojo.objects.create(name = "Dojo 2", city = "San Jose", state = "CA")
+>>> dojo3 = Dojo.objects.create(name = "Dojo 3", city = "Oakland", state = "CA")
+
+Delete the first 3 dojos
+>>> dojo1.delete()
+>>> dojo2.delete()
+>>> dojo3.delete()
+
+Create 3 more dojos
+>>> dojo4 = Dojo.objects.create(name = "Dojo 4", city = "New San Francisco", state = "CA")
+>>> dojo5 = Dojo.objects.create(name = "Dojo 5", city = "New San Jose", state = "CA")
+>>> dojo6 = Dojo.objects.create(name = "Dojo 6", city = "New Oakland", state = "CA")
+
+Create 3 ninjas that belong to the first dojo
+>>> ninja1 = Ninja.objects.create(first_name = "Jason", last_name = "Rillera", dojo = dojo4)
+>>> ninja2 = Ninja.objects.create(first_name = "Andre", last_name = "Rillera", dojo = dojo4)
+>>> ninja3 = Ninja.objects.create(first_name = "Deku", last_name = "Rillera", dojo = dojo4)
+
+Create 3 ninjas that belong to the second dojo
+>>> ninja4 = Ninja.objects.create(first_name = "Alyssa", last_name = "Nebres", dojo = dojo5)
+>>> ninja5 = Ninja.objects.create(first_name = "Jerry", last_name = "Nebres", dojo = dojo5)
+>>> ninja6 = Ninja.objects.create(first_name = "Annie", last_name = "Nebres", dojo = dojo5)
+
+Create 3 ninjas that belong to the third dojo
+>>> ninja7 = Ninja.objects.create(first_name = "Agnes", last_name = "Loyola", dojo = dojo6)
+>>> ninja8 = Ninja.objects.create(first_name = "Jay", last_name = "Loyola", dojo = dojo6)
+>>> ninja9 = Ninja.objects.create(first_name = "Son", last_name = "Loyola", dojo = dojo6)
+
+Retrieve all ninjas from the first dojo
+>>> Dojo.objects.first().ninjas.all()
+
+Retrieve all ninjas from the last dojo
+>>> Dojo.objects.last().ninjas.all()
+
+Retrieve the last ninja's dojo
+>>> Ninja.objects.last().dojo
+
+Create a new dojo
+Dojo.objects.create(name = "Dojo 7", city = "Better San Francisco", state = "CA", desc = "It's a better San Francisco") 
